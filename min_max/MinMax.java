@@ -45,12 +45,12 @@ public class MinMax {
      * - setter for min, will set min to the input value if the input value is smaller than max. If however the
      * input value is larger than max then min should be set to the old max and the max to the input value
     */
-    public void setMin(int num) {
+    public void setMin(int num) throws MyException {
         if(num < this.max) {
             this.min = num;
         } else {
-            this.min = this.max;
-            this.max = num;
+            MyException ex = new MyException(10, "Min cannot be larger than max.");
+            throw ex;
         }
     }
 
@@ -58,12 +58,12 @@ public class MinMax {
      * - setter for max, will set max to input value if the input value is larger than min, otherwise (input is smaller than min)
      * - then the max should be set to the old min and min to the input value.
     */
-    public void setMax(int num) {
+    public void setMax(int num) throws MyException {
         if(num > this.min) {
             this.max = num;
         } else {
-            this.max = this.min;
-            this.min = num;
+            MyException ex = new MyException(5, "Max cannot b smaller than min");
+            throw ex;
         }
     }
 
@@ -89,8 +89,15 @@ public class MinMax {
      * - method add that accepts an integer and adds the integer to both min and max
     */
     public void add(int num) {
-        this.setMax(this.max + num);
-        this.setMin(this.min + num);
+        try {
+            this.setMax(this.max + num);
+            this.setMin(this.min + num);
+        } catch (MyException e) {
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            e.getMessage();
+        }
+
     }
 
     /*

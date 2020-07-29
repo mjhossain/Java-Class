@@ -14,9 +14,16 @@ public class MinMaxTester {
         System.out.println("-----------------------------------------\n");
 
         // Setting obj2 with some values
-        obj2.setMin(10);
-        obj2.setMin(15);
-        obj2.setMax(5);
+        try {
+            obj2.setMin(20);
+            obj2.setMin(15);
+            obj2.setMax(5);
+        } catch (MyException e) {
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
 
         // Printing out the objects
         System.out.println("Output after setting values for obj2");
