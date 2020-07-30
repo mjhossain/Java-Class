@@ -36,16 +36,11 @@ public class Construction {
         this.year = 2000;
     }
 
-    public Construction(String owner, String type, double area, int year) throws MyException {
-        if(!this.type.equals("Residential") || !this.type.equals("Commercial") || !this.type.equals("State")
-        || this.area < 0 || this.year > 2020 || this.year < 500) {
-            throw new MyException(10, "Invalid Data");
-        } else {
+    public Construction(String owner, String type, double area, int year) {
             this.owner = owner;
             this.type = type;
             this.area = area;
             this.year = year;
-        }
     }
 
     public String getOwner() {
@@ -86,10 +81,10 @@ public class Construction {
     }
 
     public void setType(String type) throws MyException {
-        if(!type.equals("Residential") || !type.equals("Commercial") || !type.equals("State")) {
-            throw new MyException(3, "Provide a valid type!");
-        } else {
+        if(type.matches("Residential") || type.matches("Commercial")|| type.matches("State")) {
             this.type = type;
+        } else {
+            throw new MyException(3, "Provide a valid type!");
         }
     }
 

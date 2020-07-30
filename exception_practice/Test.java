@@ -3,12 +3,8 @@ package exception_practice;
 public class Test {
     public static void main(String[] args) {
         try {
-            Construction con1 = new Construction("Z Corp.", "State", 2048.75, 2020);
-            Construction con2 = new Construction();
-            con2.setArea(4000);
-            con2.setOwner("FC Corp.");
-            con2.setType("City");
-            con2.setYear(2000);
+            Construction con1 = new Construction("Z Corp.", "State", 2048, 2020);
+
 
             Residential res1 = new Residential();
             res1.setType("Commercial");
@@ -17,9 +13,8 @@ public class Test {
             res1.setYear(2000);
 
 
-            con1.toString();
-            con2.toString();
-            res1.toString();  
+            System.out.println(con1.toString());
+            System.out.println(res1.toString());
 
         } catch (MyException e) {
             System.out.println(e.getMessage());
